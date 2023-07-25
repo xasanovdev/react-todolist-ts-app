@@ -1,6 +1,7 @@
-import { FilterValuesType } from './App';
-import EditableSpan from './EditableSpan';
-import TodolistInput from './TodolistInput';
+import { FilterValuesType } from '../App/App';
+import EditableSpan from '../EditableSpan';
+import Task from '../Task';
+import TodolistInput from '../TodolistInput';
 
 export type TaskType = {
   id: string;
@@ -51,24 +52,14 @@ function Todolist(props: PropsType) {
       <ul>
         {props.tasks.length > 0
           ? props.tasks.map((task) => {
-              const removeTask = () => props.removeTask(task.id, props.id);
-              const changeTaskStatus = () =>
-                props.changeTaskStatus(task.id, props.id);
-
-              const changeTaskTitle = (title: string) => {
-                props.changeTaskTitle(task.id, props.id, title);
-              };
               return (
-                <li key={task.id}>
-                  <input
-                    type="checkbox"
-                    checked={task.isDone}
-                    onChange={changeTaskStatus}
-                  />
-                  <EditableSpan title={task.title} onChange={changeTaskTitle} />
-                  <button>edit</button>
-                  <button onClick={removeTask}>x</button>
-                </li>
+                <Task
+                  key={task.id}
+                  task={task}
+                  todolistId={props.id}
+                  removeTask={props.removeTask}
+                  changeTaskStatus={props.changeTaskStatus}
+                />
               );
             })
           : `${props.filter} Tasks was deleted :(`}
