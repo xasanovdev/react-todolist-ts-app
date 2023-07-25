@@ -117,12 +117,11 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="container__input">
-        <TodolistInput addItem={addTodolist} />
-      </div>
+    <div className="w-full border p-6 bg-violet-100">
+      <h1 className='text-center pb-8 text-[2rem]'> Todo App </h1>
+      <TodolistInput addItem={addTodolist} />
 
-      <div className="todolists__container">
+      <div className="relative mt-12 bg-violet-200 flex flex-col border border-violet-500 gap-4 p-4 rounded-xl">
         {todolists.map((todolist) => {
           let tasksForTodoList = tasksObj[todolist.id];
 
@@ -149,6 +148,9 @@ function App() {
           );
         })}
       </div>
+      <footer className='mt-4 text-center text-[1.4rem] bottom-0 py-4 w-full'>
+        Powered by xasanovdev
+      </footer>
     </div>
   );
 }

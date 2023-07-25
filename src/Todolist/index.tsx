@@ -41,12 +41,16 @@ function Todolist(props: PropsType) {
   };
 
   return (
-    <div>
-      <h1>
-        <EditableSpan title={props.title} onChange={changeTodolistTitle} />
-        <button onClick={removeTodolist}>x</button>
-      </h1>
-      <div>
+    <div className="w-full relative border bg-violet-300 border-violet-500 rounded-md p-3">
+      <div className="flex items-center justify-between">
+        <h1 className='text-[1.5rem]'>{props.title}</h1>
+        <EditableSpan
+          title={null}
+          onChange={changeTodolistTitle}
+          removeTask={removeTodolist}
+        />
+      </div>
+      <div className='my-4'>
         <TodolistInput addItem={addTask} />
       </div>
       <ul>
@@ -58,13 +62,14 @@ function Todolist(props: PropsType) {
                   task={task}
                   todolistId={props.id}
                   removeTask={props.removeTask}
+                  changeTaskTitle={props.changeTaskTitle}
                   changeTaskStatus={props.changeTaskStatus}
                 />
               );
             })
           : `${props.filter} Tasks was deleted :(`}
       </ul>
-      <div>
+      <div className='flex items-center justify-end gap-4 my-4 border p-2'>
         <button
           className={props.filter === 'All' ? 'filter-active' : ''}
           onClick={filteredTasksAll}

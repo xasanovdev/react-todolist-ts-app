@@ -2,38 +2,45 @@ import { ChangeEvent, useState } from 'react';
 export type EditableSpanPropsType = {
   title: string;
   onChange: (title: string) => void;
+  removeTask:() => void
 };
 
 function EditableSpan(props: EditableSpanPropsType) {
   const [editMode, setEditMode] = useState(false);
   const [title, setTitle] = useState('');
 
-  const activeViewMode = () => {
-    setEditMode(false);
+  const changeViewMode = () => {
+    setEditMode(!editMode);
     props.onChange(title);
-  };
-  const activeEditMode = () => {
-    setEditMode(true);
     setTitle(props.title);
   };
 
   const editInputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
-  };
+  };  
 
   return (
-    <>
+    <div className="flex items-center h-full grow-1 relative">
       {editMode ? (
-        <input
-          onChange={editInputOnChangeHandler}
-          onBlur={activeViewMode}
-          value={title}
-          autoFocus
-        />
+        <input className='bg-violet-200 outline-none pl-2 border border-violet-500' onChange={editInputOnChangeHandler} value={title} />
       ) : (
-        <span onDoubleClick={activeEditMode}>{props.title}</span>
+        <p className='text-[1.15rem] grow-1'>{props.title}</p>
       )}
-    </>
+      <span className="flex items-center">
+        <button
+          className="px-2 border border-violet-500"
+          onClick={changeViewMode}
+        >
+          {!editMode ? 'Edit' : 'Fixed'}
+        </button>
+        <button
+          className="px-2 border border-violet-500"
+          onClick={props.removeTask}
+        >
+          x
+        </button>
+      </span>
+    </div>
   );
 }
 
