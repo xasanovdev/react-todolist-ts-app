@@ -117,11 +117,12 @@ function App() {
   }
 
   return (
-    <div className="w-full border p-6 bg-violet-100">
-      <h1 className='text-center pb-8 text-[2rem]'> Todo App </h1>
+    <div className="w-full border p-1 lg:p-6 md:p-4 bg-violet-100">
+      <h1 className="text-center pb-8 text-[2rem]"> Todo App </h1>
+      <p className="text-xl mb-2">Create new todolist :</p>
       <TodolistInput addItem={addTodolist} />
-
-      <div className="relative mt-12 bg-violet-200 flex flex-col border border-violet-500 gap-4 p-4 rounded-xl">
+      <p className="text-xl mt-12 ">Todolists :</p>
+      <div className="relative mt-2 bg-violet-200 flex flex-col border border-violet-500 gap-4 p-2 sm:p-4 rounded-xl">
         {todolists.map((todolist) => {
           let tasksForTodoList = tasksObj[todolist.id];
 
@@ -131,24 +132,26 @@ function App() {
             tasksForTodoList = tasksForTodoList.filter((task) => !task.isDone);
           }
           return (
-            <Todolist
-              id={todolist.id}
-              key={todolist.id}
-              title={todolist.title}
-              tasks={tasksForTodoList}
-              removeTask={removeTask}
-              filteredTasks={filteredTasks}
-              addTask={addTask}
-              filter={todolist.filter}
-              changeTaskStatus={changeTaskStatus}
-              changeTaskTitle={changeTaskTitle}
-              removeTodolist={removeTodolist}
-              changeTodolistTitle={changeTodolistTitle}
-            />
+            <>
+              <Todolist
+                id={todolist.id}
+                key={todolist.id}
+                title={todolist.title}
+                tasks={tasksForTodoList}
+                removeTask={removeTask}
+                filteredTasks={filteredTasks}
+                addTask={addTask}
+                filter={todolist.filter}
+                changeTaskStatus={changeTaskStatus}
+                changeTaskTitle={changeTaskTitle}
+                removeTodolist={removeTodolist}
+                changeTodolistTitle={changeTodolistTitle}
+              />
+            </>
           );
         })}
       </div>
-      <footer className='mt-4 text-center text-[1.4rem] bottom-0 py-4 w-full'>
+      <footer className="mt-4 text-center text-[1.4rem] bottom-0 py-4 w-full">
         Powered by xasanovdev
       </footer>
     </div>

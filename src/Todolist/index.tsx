@@ -53,7 +53,7 @@ function Todolist(props: PropsType) {
       <div className='my-4'>
         <TodolistInput addItem={addTask} />
       </div>
-      <ul>
+      <ul className='flex flex-col gap-1'>
         {props.tasks.length > 0
           ? props.tasks.map((task) => {
               return (
