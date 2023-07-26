@@ -45,7 +45,7 @@ function Todolist(props: PropsType) {
       <div className="flex items-center justify-between">
         <h1 className='text-[1.5rem]'>{props.title}</h1>
         <EditableSpan
-          title={null}
+          title={""}
           onChange={changeTodolistTitle}
           removeTask={removeTodolist}
         />
