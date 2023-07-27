@@ -4,6 +4,12 @@
 
 Bu loyiha Xasanov Ibrohim tomonidan frontend qismi ishlab chiqilgan.
 
+## Foydalanilgan texnologiyalar
+
+- ReactJs
+- TypeScript
+- Tailwind
+
 ### Loyihaning ko'rinishi
 
 ![Tux, the Linux mascot](public/todo-app-image.png)
