@@ -1,2 +1,2 @@
 # Typescript va React kutubxonasidan foydalanib yasalgan Todolist App
-![Tux, the Linux mascot](/dist/assets/todo-app-image.png)
+![Tux, the Linux mascot](public/todo-app-image.png)
