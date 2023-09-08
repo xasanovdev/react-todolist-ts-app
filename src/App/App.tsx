@@ -18,7 +18,6 @@ export type TodolistType = {
 
 function App() {
   const todolist1 = uuidv4();
-  const todolist2 = uuidv4();
 
   const [tasksObj, setTasks] = useState<TaskslistType>({
     [todolist1]: [{ id: uuidv4(), title: 'This is example task', isDone: false }],
