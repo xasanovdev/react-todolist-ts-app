@@ -21,24 +21,11 @@ function App() {
   const todolist2 = uuidv4();
 
   const [tasksObj, setTasks] = useState<TaskslistType>({
-    [todolist1]: [
-      { id: uuidv4(), title: 'Html', isDone: true },
-      { id: uuidv4(), title: 'Css', isDone: true },
-      { id: uuidv4(), title: 'Js', isDone: true },
-      { id: uuidv4(), title: 'React', isDone: false },
-      { id: uuidv4(), title: 'Redux', isDone: false },
-    ],
-    [todolist2]: [
-      { id: uuidv4(), title: 'Milk', isDone: true },
-      { id: uuidv4(), title: 'Chocolate', isDone: true },
-      { id: uuidv4(), title: 'Meat', isDone: true },
-      { id: uuidv4(), title: 'Fruits', isDone: false },
-    ],
+    [todolist1]: [{ id: uuidv4(), title: 'This is example task', isDone: false }],
   });
 
   const [todolists, setTodolists] = useState<Array<TodolistType>>([
-    { id: todolist1, title: 'What to learn?', filter: 'All' },
-    { id: todolist2, title: 'What to buy?', filter: 'All' },
+    { id: todolist1, title: 'This is example todolist title', filter: 'All' },
   ]);
 
   function filteredTasks(value: FilterValuesType, todolistId: string) {
